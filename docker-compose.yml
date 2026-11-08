@@ -1,0 +1,14 @@
+services:
+  bot:
+    build: .
+    env_file: .env
+    environment:
+      DATABASE_PATH: /data/data.db
+    volumes:
+      - bot-data:/data
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+volumes:
+  bot-data:
